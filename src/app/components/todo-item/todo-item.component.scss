@@ -1,0 +1,76 @@
+.todo-item {
+  min-height: 50px;
+  padding: 0 5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  & .todo {
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    & .toggle {
+      width: 40px;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      border: none;
+      outline: none;
+      appearance: none;
+    }
+    & .toggle + label {
+      background-image: url('../images-icon/oval.png');
+      background-repeat: no-repeat;
+      background-position: center left;
+      margin-left: 10px;
+    }
+    & .toggle.check + lable {
+      background-image: url('../images-icon/success.png');
+    }
+    & label {
+      word-break: break-all;
+      padding: 15px 15px 15px 50px;
+      display: block;
+    }
+  }
+  & .icon-wrapper {
+    height: 25px;
+    width: 25px;
+    font-size: 25px;
+    color: white;
+    background-color: white;
+    &:hover {
+      transform: scale(1.2, 1.2);
+      color: rgb(247, 78, 48);
+    }
+    &.active {
+      color: tomato;
+      cursor: pointer;
+    }
+    &.edit {
+      &:hover {
+        transform: scale(1.2, 1.2);
+        color: rgb(0, 162, 255);
+      }
+      &.active {
+        color: deepskyblue;
+        cursor: pointer;
+      }
+    }
+  }
+  .edit-form {
+    position: absolute;
+    width: 98.5%;
+    height: 100%;
+    background-color: white;
+    & input {
+      height: 92%;
+      width: 92%;
+      margin-left: 35px;
+      font-size: 18px;
+      padding-left: 10px;
+    }
+  }
+}
