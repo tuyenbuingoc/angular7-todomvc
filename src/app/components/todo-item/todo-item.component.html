@@ -3,14 +3,20 @@
     (mouseout)="isHovered = false"
 >
   <div class="todo">
-    <input type="checkbox" class="toggle text-center">
-    <label>Todo Item</label>
+    <input
+    type="checkbox"
+    class="toggle text-center"
+    [ngClass]="{ checked: todo.isCompleted }"
+    [id]="todo.id"
+    [checked]="todo.isCompleted"
+    (change)="changeTodoStatus()">
+    <label [for]="todo.id">{{todo.content}}</label>
   </div>
   <div class="d-flex align-items-center">
-    <span class="icon-wrapper text-center edit" [ngClass]="{active: isHovered}">
+    <span class="icon-wrapper text-center edit" [ngClass]="{ active: isHovered }">
       <i class="eva eva-edit-outline" (click)="isEditting = true"></i>
     </span>
-    <span class="icon-wrapper text-center" [ngClass]="{active: isHovered}">
+    <span class="icon-wrapper text-center" [ngClass]="{ active: isHovered }">
         <i class="eva eva-close"></i>
     </span>
   </div>

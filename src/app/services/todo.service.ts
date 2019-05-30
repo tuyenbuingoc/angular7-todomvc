@@ -30,7 +30,21 @@ export class TodoService {
     this.filterTodos(this.currentFilter, false);
     this.updateTodosData();
   }
-  filterTodos(filter: Filter, isFitering: boolean = true) {
+  addTodo(content: string) {
+    const date = new Date(Date.now()).getTime();
+    const newTodo = new Todo(date, content);
+    this.todos.push(newTodo);
+    this.updateToLocalStorage();
+  }
+
+  changeTodoStatus(id: number, isCompleted: boolean) {
+    const index = this.todos.findIndex(t => t.id === id);
+    const todo = this.todos[index];
+    todo.isCompleted = isCompleted;
+    this.todos.splice(index, 1, todo);
+    this.updateToLocalStorage();
+  }
+  filterTodos(filter: Filter, isFiltering: boolean = true) {
     this.currentFilter = filter;
     switch (filter) {
       case Filter.Active:
@@ -43,7 +57,7 @@ export class TodoService {
         this.filteredTodos = [...this.todos.map(todo => ({...todo}))];
         break;
     }
-    if (isFitering) {
+    if (isFiltering) {
       this.updateTodosData();
     }
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterButton, Filter } from 'src/app/models/filterring.model';
-
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-footer',
@@ -15,8 +15,7 @@ export class FooterComponent implements OnInit {
   ];
 
   length = 0;
-  constructor() { }
-
+  constructor(private todoService: TodoService) { }
   ngOnInit() {
   }
 

@@ -26,8 +26,9 @@
       background-position: center left;
       margin-left: 10px;
     }
-    & .toggle.check + lable {
+    & .toggle.checked + lable {
       background-image: url('../images-icon/success.png');
+      text-decoration: line-through;
     }
     & label {
       word-break: break-all;

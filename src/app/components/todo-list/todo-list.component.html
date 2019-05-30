@@ -1,1 +1,4 @@
-<app-todo-item></app-todo-item>
+<app-todo-item
+*ngFor="let todo of todos$ | async"
+[todo]="todo"
+(changeStatus)="onChangeTodoStatus($event)"></app-todo-item>
